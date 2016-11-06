@@ -1,0 +1,50 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: Bibek
+  Date: 11/2/2016
+  Time: 1:12 PM
+  To change this template use File | Settings | File Templates.
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lab2 Solutions</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+      function loadAllNames(){
+        $(document).on('click','#btnShow', function(){});
+
+          $("#listDiv").innerHTML = "Hello all";
+
+      }
+    </script>
+  </head>
+  <body>
+  <h3>Welcome to Lab2 Solution</h3>
+  <a href="/addName">Lab2</a>
+  <div>
+    <h3>Show all Names</h3>
+    <div id="listDiv">
+
+    </div>
+    <button id="btnShow">Show all Names</button>
+  </div>
+
+    <div>
+      <form method="get" action="/addName">
+        Key=<INPUT type="text" name="key">
+        FirstName=<INPUT type="text" name="firstName">
+        LastName=<INPUT type="text" name="lastName">
+        <INPUT type="submit" value="Add">
+        </form>
+    </div>
+    <div>
+      <form method="get" action="/deleteName">
+        Key=<INPUT type="text" name="key">
+        <INPUT type="submit" value="Delete">
+      </form>
+    </div>
+
+  </body>
+</html>
