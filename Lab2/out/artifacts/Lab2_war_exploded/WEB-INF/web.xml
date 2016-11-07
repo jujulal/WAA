@@ -11,4 +11,22 @@
         <servlet-name>addNameServlet</servlet-name>
         <url-pattern>/addName</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>allNamesServlet</servlet-name>
+        <servlet-class>mum.lab.names.AllNamesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>allNamesServlet</servlet-name>
+        <url-pattern>/showNames</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>deleteName</servlet-name>
+        <servlet-class>mum.lab.names.RemoveNameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deleteName</servlet-name>
+        <url-pattern>/deleteName</url-pattern>
+    </servlet-mapping>
 </web-app>
