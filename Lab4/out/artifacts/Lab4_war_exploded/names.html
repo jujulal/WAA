@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            //showing name list in div
+            $('#btnShow').click(function () {
+                $.ajax({url: "/namesController",type:"GET",success: function (result) {
+                    $('#listDiv').html(result);
+                }});
+            });
+
+            //For Submitting form
+
+
+            $('#addForm').submit(function (event) {
+                event.preventDefault();
+                //var $posting = $.ajax(url,type:'POST', );
+                $.ajax({url: "namesController",type:"POST",data:{key:$('#key').val(), firstName:$('#firstName').val(), lastName:$('#lastName').val()},success: function (result) {
+                    alert("Added successfully!");
+                }});
+            });
+
+            //DELETE FORM METHOD
+            $('#deleteForm').submit(function (event) {
+               event.preventDefault();
+                $.ajax({url: "namesController/delete",type:"POST",data:{key:$('#delKey').val()},success: function (result) {
+                    alert("Deleted successfully!");
+                }});
+            });
+
+        });
+    </script>
+</head>
+<body>
+
+<button id="btnShow">Show all Names</button>
+<div id="listDiv">
+
+</div>
+<div>
+    <form action="namesController" method="post" id="addForm" name="addForm">
+        Key=<input type="text" id="key" name="key">
+        First Name=<input type="text" id="firstName" name="firstName">
+        Last Name=<input type="text" id="lastName" name="lastName">
+        <input type="submit" value="Add"/>
+    </form>
+</div>
+<div>
+    <form action="namesController" method="post" id="deleteForm" name="deleteForm">
+        Key=<input type="text" id="delKey" name="delKey">
+        <input type="submit" value="Remove">
+    </form>
+</div>
+</body>
+</html>
