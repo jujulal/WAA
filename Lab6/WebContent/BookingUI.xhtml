@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html" >
+<h:head>
+
+<title>Search for flight</title>
+</h:head>
+<h:body>
+	<h:form>
+		From <h:selectOneMenu name="from" value="#{searchFlight.from}">
+				<f:selectItem itemValue="Amsterdam" itemLabel="Amsterdam" />
+				<f:selectItem itemValue="Paris" itemLabel="Paris" />
+				<f:selectItem itemValue="Lissabon" itemLabel="Lissabon" />
+		</h:selectOneMenu> <br/><br/>
+		To <h:selectOneMenu name="to" value="#{searchFlight.to}">
+				<f:selectItem itemValue="New York" itemLabel="New York" />
+				<f:selectItem itemValue="Boston" itemLabel="Boston" />
+				<f:selectItem itemValue="Chicago" itemLabel="Chicago" />
+		</h:selectOneMenu> <br/><br/>
+		Departure date <h:inputText name="departureDate" value="#{searchFlight.departureDate}" />  <br/><br/>
+		Return date <h:inputText name="returnDate" value="#{searchFlight.returnDate}" /> <br/><br/>
+		
+		<h:selectOneRadio value="#{searchFlight.trip}" >
+			<f:selectItem itemValue="RoundTrip" itemLabel="Round Trip" />
+			<f:selectItem itemValue="OneWay" itemLabel="One Way" />
+		</h:selectOneRadio> <br/><br/>
+		
+		<h:selectManyCheckbox value="#{searchFlight.selectedOptions}" >
+			<f:selectItem itemValue="firstClass" itemLabel="First Class" />
+			<f:selectItem itemValue="exactTheseDates" itemLabel="Exact these dates" />
+			<f:selectItem itemValue="noStopOver" itemLabel="No stopover" />
+		</h:selectManyCheckbox>
+		
+		
+		<h:commandButton value="Submit" action="#{searchFlight.search}" />
+	</h:form>
+</h:body>
+</html>
